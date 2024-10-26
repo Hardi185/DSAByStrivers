@@ -1,0 +1,57 @@
+public class SelectionSort {
+
+    // Main selection sort function
+    public static void selectionSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minIndex = findMinIndex(arr, i); // Find the minimum element in unsorted part
+            swap(arr, i, minIndex); // Swap it with the current element
+
+            // Print the array after each step for visualization
+            System.out.println("Step " + (i + 1) + ": " + java.util.Arrays.toString(arr));
+        }
+    }
+
+    // Function to find the index of the minimum element in the array starting from 'start'
+    public static int findMinIndex(int[] arr, int start) {
+        int minIndex = start;
+        for (int j = start + 1; j < arr.length; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        return minIndex;
+    }
+
+    // Function to swap two elements in the array
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {4, 1, 3, 9, 7};
+        selectionSort(arr);
+        
+        System.out.println("Sorted array: " + java.util.Arrays.toString(arr));
+    }
+}
+
+____________________________________________________________________________________________________________________________________________________________________
+NOTES:
+
+1)Loop through the array
+2)Find minimun
+3)swap min with current index element
+
+--> by each iteration array will start to sort from Left side
+Example:
+
+Step 1: [1, 4, 3, 9, 7]
+Step 2: [1, 3, 4, 9, 7]
+Step 3: [1, 3, 4, 9, 7]
+Step 4: [1, 3, 4, 7, 9]
+
+
+
+
