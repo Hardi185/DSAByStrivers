@@ -1,0 +1,52 @@
+class Solution {
+
+    // Method to perform the insertion sort
+    public void insertionSort(int[] arr, int n) {
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];  // The element to be positioned
+            int j = i;
+
+            //traverse in reverse in innper loop
+            while (j > 0) {
+                if(arr[j] < arr[j -1]){
+                    //swap adjacent
+                    swap(arr, j, j - 1);
+                }
+                j--;
+            }
+        }
+    }
+
+    // Method to swap two elements in the array
+    private void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] arr = {5, 3, 8, 4, 2};
+        System.out.println("Original Array: " + java.util.Arrays.toString(arr));
+        solution.insertionSort(arr, arr.length);
+        System.out.println("Sorted Array: " + java.util.Arrays.toString(arr));
+    }
+}
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+NOTES:
+--> insertion sort is always parted in Sorted and UnSorted arrays
+--> At the beginning the first index element is considered as sorted
+
+1)Have loop out loop i from 1 to n-1 in right direction, inner loop from i to (j > 0) in reverse
+2)Compair the adjacents
+3)Swap the adjacents
+
+Example:
+Original Array: [5, 3, 8, 4, 2]
+After inserting 3: [3, 5, 8, 4, 2]
+After inserting 8: [3, 5, 8, 4, 2]
+After inserting 4: [3, 4, 5, 8, 2]
+After inserting 2: [2, 3, 4, 5, 8]
+Sorted Array: [2, 3, 4, 5, 8]
