@@ -1,0 +1,29 @@
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int maxCount = 0; // To track the maximum count of consecutive 1s
+        int currentCount = 0; // To track the current streak of 1s
+
+        // Iterate through the array
+        for (int num : nums) {
+            if (num == 1) {
+                currentCount++; // Increment count for a consecutive 1
+            } else {
+                // Update maxCount if currentCount is greater
+                maxCount = Math.max(maxCount, currentCount);
+                currentCount = 0; // Reset the current streak
+            }
+        }
+        // Final check to update maxCount after the loop
+        maxCount = Math.max(maxCount, currentCount);
+
+        return maxCount;
+    }
+}
+_______________________________________________________________________________________________________________________
+
+NOTES:
+1)Initialize maxcount and currentCount
+2)Loop through the array, check each element if number is 1, increment currentCount of 1
+else check the max between maxCount and currentCount, and consider it as new maxCount
+and reset currentCount
+3)At the end again check the max between maxCount and currentCount which will be our maxCount of Consecutive 1's
