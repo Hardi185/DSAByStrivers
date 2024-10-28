@@ -1,0 +1,21 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int expectedSum = n * (n + 1) / 2;  // Sum of numbers from 0 to n
+        int actualSum = 0;
+
+        // Calculate the sum of elements in the array
+        for (int num : nums) {
+            actualSum += num;
+        }
+
+        // The missing number is the difference between expected and actual sums
+        return expectedSum - actualSum;
+    }
+}
+_________________________________________________________________________________________________________________________
+
+NOTES:
+1)find the expectedSum sum using the formula: n * (n + 1) / 2
+2)find the actualSum by loop throigh it
+3)value of expectedSum - actualSum will be missing number
