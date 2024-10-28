@@ -1,0 +1,25 @@
+class Solution {
+    public int getSecondLargest(int[] arr) {
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+        
+        for (int num : arr){
+            if(num > largest){
+                secondLargest = largest;
+                largest = num;
+            }
+            else if(num > secondLargest && num < largest){
+                secondLargest = num; }
+    
+        }
+        
+        return (secondLargest == Integer.MIN_VALUE) ? -1 : secondLargest;
+    }
+}
+________________________________________________________________________________________________________________________________________________________________
+
+NOTES:
+1)Initialize largest and second largest with MIN value
+2)Loop through array
+3)check if we found Largest while traversing till current, do given assignment
+else if we found second largest while traversing till current, do given assignment 
