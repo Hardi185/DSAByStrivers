@@ -1,0 +1,33 @@
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+
+        Set<Integer> set = new LinkedHashSet<>();  
+
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int index = 0;
+        for (Integer value : set) {
+            nums[index++] = value;  
+        }
+
+        int uniqueCount = set.size();
+
+        // Print the array after removing duplicates
+        System.out.println("Array after removing duplicates: " + Arrays.toString(Arrays.copyOf(nums, uniqueCount)));
+
+        // Print the count of unique numbers
+        System.out.println("Count of unique numbers: " + uniqueCount);
+
+        return uniqueCount;  
+    }
+}
+____________________________________________________________________________________________________________________________________________
+
+NOTES:
+1)Add array to Set Interface (Use LinkedHashSet not HashSet because it will not maintain insertion order)
+2)By adding it to set we'll it will remove duplicates, add set value to array and retrun set size as count
