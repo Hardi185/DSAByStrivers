@@ -1,0 +1,21 @@
+class Solution {
+    public int largest(int[] arr) {
+        int n = arr.length;
+        
+        int largest = arr[0];
+        
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+        
+        return largest; 
+    }
+}
+_______________________________________________________________________________________________________________________________________________________________________
+
+NOTES:
+1)Consider first as largest
+2)Loop through array from a[1]
+3)Check if any of those is greater than largest switch largest with current
