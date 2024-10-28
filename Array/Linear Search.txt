@@ -1,0 +1,17 @@
+class Solution {
+    public boolean linearSearch(int[] arr, int k) {
+        // Iterate through each element in the array
+        for (int i = 0; i < arr.length; i++) {
+            // Check if the current element is equal to k
+            if (arr[i] == k) {
+                return true; // k found
+            }
+        }
+        return false; // k not found
+    }
+}
+_________________________________________________________________________________________________________________________
+
+NOTES:
+1)loop through the array
+2)check condition for each element if it does match the seach element return true else false 
