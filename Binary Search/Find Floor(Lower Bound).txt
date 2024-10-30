@@ -1,0 +1,40 @@
+PROBLEM:
+The lower bound of 𝑘 in a sorted array is the index of the smallest element that is greater than or equal to 𝑘, but to find the floor, we need the largest element that is less than or equal to 
+𝑘, which can be efficiently found using binary search in O(logn) due to the sorted nature of the array.
+
+EQUATION: arr[i] >= x then, i will be lower bound
+-->if we exceed the limit of index then length of array(hypothetical index) will be lower bound
+ex: 3| 5| 8| 15| 19 and x =20
+so last index is 4 where 19>= 20 fails, so length of array = 5 will be lower bound
+___________________________________________________________________________________________________________________________
+CODE:
+import java.util.*;
+class Solution {
+    static int findFloor(int[] arr, int k) {
+        int n = arr.length;
+        int low = 0, high = n - 1;
+        int ans = n;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] >= k) {
+                // maybe an answer
+                ans = mid;
+                //look for smaller index on the left
+                high = mid - 1;
+            } else {
+                low = mid + 1; // look on the right
+            }
+        }
+        return ans;
+    }
+}
+___________________________________________________________________________________________________________________________
+SOLUTION:
+
+1)Intialize n with array length, low index with 0 and high with n-1, default answere will be n(hypothetical index)
+2)Loop through untill left and right are either same or cross right crosses left
+3)find mid
+-->if mid element >= k (10 >= 8) then it save it as ans(it could be and answere) and traverse on left.
+to check is there any element smaller than 10 (9 >=8, 8>=8) both sastifies the condition
+-->else traverse right side, case: 3 >= 8, which fails.
