@@ -1,0 +1,40 @@
+PROBLEM:
+The upper bound algorithm finds the first or the smallest index in a sorted array where the value at that index is greater than the given key i.e. x.
+
+The upper bound is the smallest index, ind, where arr[ind] > x.
+
+But if any such index is not found, the upper bound algorithm returns n i.e. size of the given array. 
+The main difference between the lower and upper bound is in the condition. 
+For the lower bound the condition was arr[ind] >= x and here, in the case of the upper bound, it is arr[ind] > x.
+___________________________________________________________________________________________________________________________
+CODE:
+import java.util.*;
+
+public class Solution {
+
+    public static int upperBound(int[] arr, int x, int n) {
+        int low = 0, high = n - 1;
+        int ans = n;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            // maybe an answer
+            if (arr[mid] > x) {
+                ans = mid;
+                //look for smaller index on the left
+                high = mid - 1;
+            } else {
+                low = mid + 1; // look on the right
+            }
+        }
+        return ans;
+    }
+}
+
+___________________________________________________________________________________________________________________________
+SOLUTION:
+1)Intialize n with array length, low index with 0 and high with n-1, default answere will be n(hypothetical index)
+2)Loop through untill left and right are either same or cross right crosses left
+3)find mid
+-->if mid element > k then it save it as ans(it could be and answere) and traverse on left.
+-->else traverse right side.
