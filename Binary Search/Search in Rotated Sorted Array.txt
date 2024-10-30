@@ -1,0 +1,79 @@
+PROBLEM:
+There is an integer array nums sorted in ascending order (with distinct values).
+
+Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+
+Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+Example 1:
+
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+Example 2:
+
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
+Example 3:
+
+Input: nums = [1], target = 0
+Output: -1
+ 
+____________________________________________________________________________________________________________________________________
+CODE:
+//linear search approach
+public class Solution {
+    public static int search(int[] arr, int k) {
+         int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == k)
+                return i;
+        }
+        return -1;
+    }
+}
+
+//binary search approach
+public class Solution {
+    public static int search(int[] arr, int k) {
+        int n = arr.length;
+        int low = 0, high = n - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            // if mid points to the target
+            if (arr[mid] == k)
+                return mid;
+
+            // if left part is sorted
+            if (arr[low] <= arr[mid]) {
+                if (arr[low] <= k && k <= arr[mid]) {
+                    // element exists
+                    high = mid - 1;
+                } else {
+                    // element does not exist
+                    low = mid + 1;
+                }
+            } else { // if right part is sorted
+                if (arr[mid] <= k && k <= arr[high]) {
+                    // element exists
+                    low = mid + 1;
+                } else {
+                    // element does not exist
+                    high = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+}
+____________________________________________________________________________________________________________________________________
+SOLUTION:
+-->If array is rotated either of the part will be sorted
+1)if left is sorted then check if element exists in that range 
+  if yes then traverse left side(by setting higher bound mid -1)
+  else traverse right side(by setting lower bound mid + 1)
+2)else if right is sorted then check if element exists in that range
+  if yes then traverse right side(by setting lower bound mid + 1)
+  else traverse left side(by setting higher bound mid - 1)
