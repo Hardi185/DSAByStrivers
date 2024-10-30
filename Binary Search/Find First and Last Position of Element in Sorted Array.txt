@@ -1,0 +1,103 @@
+PROBLEM:
+Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+
+If target is not found in the array, return [-1, -1].
+
+You must write an algorithm with O(log n) runtime complexity.
+
+Example 1:
+
+Input: nums = [5,7,7,8,8,10], target = 8
+Output: [3,4]
+Example 2:
+
+Input: nums = [5,7,7,8,8,10], target = 6
+Output: [-1,-1]
+Example 3:
+
+Input: nums = [], target = 0
+Output: [-1,-1]
+___________________________________________________________________________________________________________________________
+CODE:
+//binary seach
+class Solution {
+    public static int[] searchRange(int[] nums, int target) {
+        int[] result = {-1, -1}; // Initialize the result to [-1, -1]
+
+        // Find the first position of the target
+        result[0] = findFirstPosition(nums, target);
+        
+        // If the target is not found, return [-1, -1]
+        if (result[0] == -1) {
+            return result;
+        }
+
+        // Find the last position of the target
+        result[1] = findLastPosition(nums, target);
+
+        return result;
+    }
+
+    // Helper method to find the first occurrence of the target
+    private static int findFirstPosition(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        int firstPos = -1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] == target) {
+                firstPos = mid; // Potential answer
+                high = mid - 1; // Look for earlier occurrences
+            } else if (nums[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return firstPos;
+    }
+
+    // Helper method to find the last occurrence of the target
+    private static int findLastPosition(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        int lastPos = -1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] == target) {
+                lastPos = mid; // Potential answer
+                low = mid + 1; // Look for later occurrences
+            } else if (nums[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return lastPos;
+    }
+}
+___________________________________________________________________________________________________________________________
+SOLUTION:
+1)findFirstPosition function:
+Intialize left as lower index, right  as higher index and firstPositionIndex as -1(default)
+Loop thorugh utill left and right crosses (left is greater than right)
+-->Case 1: mid element is less than target then, traverse right side (with low = mid + 1)
+-->Case 2: mid element is greater than target then, traverse left side (with high = mid - 1)
+-->Case 3: we found target element but, don't know whether it is left most(first position of target) or not
+so save current index as firstPositionIndex and still traverse left side(using high = mid - 1)
+
+2)findLastPosition function:
+Intialize left as lower index, right as higher index and lastPositionIndex as -1(default)
+Loop thorugh utill left and right crosses (left is greater than right)
+-->Case 1: mid element is less than target then, traverse right side (with low = mid + 1)
+-->Case 2: mid element is greater than target then, traverse left side (with high = mid - 1)
+-->Case 3: we found target element but, don't know whether it is right most(last position of target) or not
+so save current index as lastPositionIndex and still traverse right side(using low = mid + 1)
+
+3)searchRange function:
+-->Intialize result array with [-1, -1] values
+-->get findFirstPosition if it is -1 then return from there only, don't call findLastPosition
+(because if firstPosition doesn't exist means target doesn't in array)
+-->else call findLastPosition and get lastPosition and return result
