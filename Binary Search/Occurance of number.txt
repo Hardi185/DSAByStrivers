@@ -1,0 +1,106 @@
+PROBLEM:
+Given a sorted array, arr and a number target, you need to find the number of occurrences of target in arr. 
+Examples :
+
+Input:  arr[] = [1, 1, 2, 2, 2, 2, 3], target = 2
+Output: 4
+Explanation: target = 2 occurs 4 times in the given array so the output is 4.
+Input: arr[] = [1, 1, 2, 2, 2, 2, 3], target = 4
+Output: 0
+Explanation: target = 4 is not present in the given array so the output is 0.
+Input: arr[] = [8, 9, 10, 12, 12, 12], target = 12
+Output: 3
+Explanation: target = 12 occurs 3 times in the given array so the output is 3.
+_____________________________________________________________________________________________________________________________________
+CODE:
+//Linear Search Approach
+class Solution {
+    public static int countOccurrences(int[] arr, int target) {
+        int count = 0;
+        
+        for (int num : arr) {
+            if (num == target) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {1, 1, 2, 2, 2, 2, 3};
+        System.out.println(countOccurrences(arr1, 2)); // Output: 4
+
+        int[] arr2 = {1, 1, 2, 2, 2, 2, 3};
+        System.out.println(countOccurrences(arr2, 4)); // Output: 0
+
+        int[] arr3 = {8, 9, 10, 12, 12, 12};
+        System.out.println(countOccurrences(arr3, 12)); // Output: 3
+    }
+}
+
+//Binary Search Approach
+class Solution {
+    public static int countOccurrences(int[] arr, int target) {
+        int first = findFirstOccurrence(arr, target);
+        if (first == -1) {  // Target not found
+            return 0;
+        }
+        
+        int last = findLastOccurrence(arr, target);
+        return last - first + 1;  // Total count
+    }
+    
+    // Helper function to find first occurrence of target
+    private static int findFirstOccurrence(int[] arr, int target) {
+        int low = 0, high = arr.length - 1;
+        int firstOccurrence = -1;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (arr[mid] == target) {
+                firstOccurrence = mid;
+                high = mid - 1;  // Search left part for earlier occurrence
+            } else if (arr[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return firstOccurrence;
+    }
+    
+    // Helper function to find last occurrence of target
+    private static int findLastOccurrence(int[] arr, int target) {
+        int low = 0, high = arr.length - 1;
+        int lastOccurrence = -1;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (arr[mid] == target) {
+                lastOccurrence = mid;
+                low = mid + 1;  // Search right part for later occurrence
+            } else if (arr[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return lastOccurrence;
+    }
+    
+    public static void main(String[] args) {
+        int[] arr1 = {1, 1, 2, 2, 2, 2, 3};
+        System.out.println(countOccurrences(arr1, 2)); // Output: 4
+
+        int[] arr2 = {1, 1, 2, 2, 2, 2, 3};
+        System.out.println(countOccurrences(arr2, 4)); // Output: 0
+
+        int[] arr3 = {8, 9, 10, 12, 12, 12};
+        System.out.println(countOccurrences(arr3, 12)); // Output: 3
+    }
+}
+
+_____________________________________________________________________________________________________________________________________
+SOLUTION(Binary search approach explaination):
+Please Refer this:
+https://github.com/Hardi185/DSAByStrivers/blob/main/Binary%20Search/Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array.txt
