@@ -66,3 +66,4 @@ SOLUTION:
 if S contains that key then check it matches t, if no then return false(conflict found)
 else put it to S
 3)do the same for T to S
+4)if no mapping conflict is found return true
