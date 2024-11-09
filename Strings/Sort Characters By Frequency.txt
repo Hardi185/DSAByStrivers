@@ -1,0 +1,90 @@
+PROBLEM:
+Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
+
+Return the sorted string. If there are multiple answers, return any of them.
+
+Example 1:
+Input: s = "tree"
+Output: "eert"
+Explanation: 'e' appears twice while 'r' and 't' both appear once.
+So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+
+Example 2:
+Input: s = "cccaaa"
+Output: "aaaccc"
+Explanation: Both 'c' and 'a' appear three times, so both "cccaaa" and "aaaccc" are valid answers.
+Note that "cacaca" is incorrect, as the same characters must be together.
+
+Example 3:
+Input: s = "Aabb"
+Output: "bbAa"
+Explanation: "bbaA" is also a valid answer, but "Aabb" is incorrect.
+Note that 'A' and 'a' are treated as two different characters.
+__________________________________________________________________________________________________________________________
+CODE & EXPLAINATION:
+Approach1:
+public class Solution {
+    public String frequencySort(String s) {
+        // Step 1: Count frequency of each character
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
+        }
+        System.out.println("frequencyMap: " +frequencyMap);
+
+        // Step 2: Create an array of lists as buckets
+        List<Character>[] buckets = new List[s.length() + 1];
+        for (char c : frequencyMap.keySet()) {//r
+            int freq = frequencyMap.get(c);//1
+            if (buckets[freq] == null) {
+                buckets[freq] = new ArrayList<>();
+            }
+            buckets[freq].add(c); // Add character to the appropriate bucket
+        }
+
+        // Step 3: Build the result string from buckets
+        StringBuilder result = new StringBuilder();
+        for (int i = buckets.length - 1; i >= 1; i--) {
+            if (buckets[i] != null) {
+                for (char c : buckets[i]) {
+                    result.append(String.valueOf(c).repeat(i)); // Append character 'i' times
+                }
+            }
+        }
+        System.out.println("result: "+result);
+        
+        return result.toString();
+    }
+}
+
+Approach2:
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+
+class Solution {
+    public String frequencySort(String s) {
+        // Frequency map for each character
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
+        }
+        
+        // Priority queue to sort characters by frequency (highest first)
+        PriorityQueue<Character> maxHeap = new PriorityQueue<>((a, b) -> frequencyMap.get(b) - frequencyMap.get(a));
+        maxHeap.addAll(frequencyMap.keySet());
+        
+        // Build the result string
+        StringBuilder result = new StringBuilder();
+        while (!maxHeap.isEmpty()) {
+            char current = maxHeap.poll();
+            int count = frequencyMap.get(current);
+            for (int i = 0; i < count; i++) {
+                result.append(current);
+            }
+        }
+        
+        return result.toString();
+    }
+}
+__________________________________________________________________________________________________________________________
