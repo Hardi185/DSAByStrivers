@@ -1,0 +1,33 @@
+PROBLEM:
+Given two strings s and goal, return true if and only if s can become goal after some number of shifts on s.
+
+A shift on s consists of moving the leftmost character of s to the rightmost position.
+
+For example, if s = "abcde", then it will be "bcdea" after one shift.
+
+Example 1:
+Input: s = "abcde", goal = "cdeab"
+Output: true
+
+Example 2:
+Input: s = "abcde", goal = "abced"
+Output: false
+__________________________________________________________________________________________________________________________
+CODE and EXPLAINATION:
+class Solution {
+    public boolean rotateString(String s, String goal) {
+         // Step 1: Check if lengths are equal
+        if (s.length() != goal.length()) {
+            return false;
+        }
+        
+        // Step 2: Concatenate s with itself
+        String concatenated = s + s;
+
+        // Step 3: Check if goal is a substring of concatenated
+        //for "abcde" the index of "cdeab" will be 2
+        return concatenated.contains(goal);
+    }
+}
+__________________________________________________________________________________________________________________________
+
