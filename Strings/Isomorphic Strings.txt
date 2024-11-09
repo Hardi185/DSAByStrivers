@@ -1,0 +1,68 @@
+PROBLEM:
+Given two strings s and t, determine if they are isomorphic.
+
+Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+
+Example 1:
+Input: s = "egg", t = "add"
+Output: true
+Explanation:
+The strings s and t can be made identical by:
+Mapping 'e' to 'a'.
+Mapping 'g' to 'd'.
+
+Example 2:
+Input: s = "foo", t = "bar"
+Output: false
+Explanation:
+The strings s and t can not be made identical as 'o' needs to be mapped to both 'a' and 'r'.
+
+Example 3:
+Input: s = "paper", t = "title"
+Output: true
+__________________________________________________________________________________________________________________________
+CODE:
+import java.util.HashMap;
+
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        HashMap<Character, Character> mapST = new HashMap<>();
+        HashMap<Character, Character> mapTS = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char charS = s.charAt(i);
+            
+            char charT = t.charAt(i);
+            if (mapST.containsKey(charS)) {
+                if (mapST.get(charS) != charT) {
+                    return false; // Conflict in mapping
+                }
+            } else {
+                mapST.put(charS, charT);
+            }
+
+            if (mapTS.containsKey(charT)) {
+                if (mapTS.get(charT) != charS) {
+                    return false; // Conflict in mapping
+                }
+            } else {
+                mapTS.put(charT, charS); 
+            }
+        }
+
+        return true; // No conflicts found
+    }
+}
+__________________________________________________________________________________________________________________________
+SOLUTION:
+1)have to map S to T and T to S
+2)get char on same indexes for s and t
+if S contains that key then check it matches t, if no then return false(conflict found)
+else put it to S
+3)do the same for T to S
