@@ -18,7 +18,7 @@ Given an array arr[], return the second largest element from an array. If the se
 
 **Explanation:** The largest element of the array is 10 and the second largest element does not exist..
 
---
+---
 
 # CODE:
 
@@ -47,6 +47,8 @@ class Solution {
 
 # NOTES:
 1)Initialize largest and second largest with MIN value
+
 2)Loop through array
+
 3)check if we found Largest while traversing till current, do given assignment
-else if we found second largest while traversing till current, do given assignment 
+    - else if we found second largest while traversing till current, do given assignment 
