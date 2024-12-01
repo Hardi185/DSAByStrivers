@@ -148,6 +148,12 @@ public class Solution {
 | Naive Approach       | O(r^2)          | O(r^2)           |
 | Optimized Approach   | O(c)            | O(1)             |
 
+---
+
+##  Variation 2: Print the n-th row of Pascal’s triangle
+
+
+
 
 
 
