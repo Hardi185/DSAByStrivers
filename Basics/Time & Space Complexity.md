@@ -1,5 +1,21 @@
 # Algorithm Complexity: Time and Space
 
+## Table of Contents
+1. [Time Complexity](#time-complexity)  
+   - [Common Time Complexities](#common-time-complexities)  
+   - [Algorithm Notation: Big O, Θ, and Ω](#algorithm-notation-big-o-θ-and-Ω)  
+     - [Big O (O): Upper Bound](#1-big-o-o-upper-bound)  
+     - [Theta (Θ): Tight Bound](#2-theta-θ-tight-bound)  
+     - [Omega (Ω): Lower Bound](#3-omega-Ω-lower-bound)  
+   - [Key Points for Understanding Time Complexity](#key-points-for-understanding-time-complexity)  
+2. [Space Complexity](#space-complexity)  
+   - [Factors Affecting Space Complexity](#factors-affecting-space-complexity)  
+   - [Example Space Complexities](#example-space-complexities)  
+3. [Why It Matters](#why-it-matters)  
+4. [References](#references)
+
+---
+
 ## Time Complexity
 Time complexity is a measure of the time an algorithm takes to complete as a function of the input size, `n`. It reflects how the execution time grows as the input size increases.
 
