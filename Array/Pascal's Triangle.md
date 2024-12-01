@@ -152,10 +152,119 @@ public class Solution {
 
 ##  Variation 2: Print the n-th row of Pascal’s triangle
 
+### Approach 1: Naive Approach
 
+In this approach, we calculate the value of each element in the row by computing the binomial coefficient `nCr` for each column using a loop.
 
+####  steps:
 
+1. For each column (from 1 to n), we calculate the binomial coefficient `nCr`.
+2. We do this by considering the formula and calculating it iteratively in a loop.
+   
+#### Code:
 
+```java
 
+import java.util.*;
 
+public class Main {
 
+    public static long nCr(int n, int r) {
+        long res = 1;
+
+        // calculating nCr:
+        for (int i = 0; i < r; i++) {
+            res = res * (n - i);
+            res = res / (i + 1);
+        }
+        return res;
+    }
+
+    public static void pascalTriangle(int n) {
+        // printing the entire row n:
+        for (int c = 1; c <= n; c++) {
+            System.out.print(nCr(n - 1, c - 1) + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        pascalTriangle(n);
+    }
+}
+```
+
+**Output:** 1 4 6 4 1
+
+#### Complexity Analysis
+**Time Complexity:** O(n*r), where n is the given row number, and r is the column index which can vary from 0 to n-1.
+**Reason:** We are calculating the element for each column. Now, there are total n columns, and for each column, the calculation of the element takes O(r) time where r is the column index.
+
+**Space Complexity:** O(1) as we are not using any extra space.
+
+### Approach 2: Optimal Approach
+We will try to build intuition for this approach using the following observations.
+
+![image](https://github.com/user-attachments/assets/afb865fa-ed09-4425-881d-b2e9a38f1c45)
+
+Here, we can observe that the numbers marked in red are added to the previous number to build the current number. In each step, the numerator is multiplied by the previous consecutive element, and the denominator is multiplied by the next consecutive element.
+
+We will replicate this in our algorithm. First, we will mark the indices of the column starting from 0. Then we will simply multiply the numerator by (n-index) and the denominator by the index itself.
+
+From column no. 1 the formula will be the following:
+
+`Current element = prevElement * (rowNumber - colIndex) / colIndex`
+
+#### Steps:
+
+In this optimized approach, we observe the following pattern:
+
+- Each element in the row can be derived from the previous one.
+- Using the formula currentElement = previousElement * (n - i) / i, we can efficiently calculate the row without recalculating the factorials.
+
+**Steps:**
+1) Print the first element 1 manually.
+2) For each subsequent element, use the formula to compute it based on the previous element.
+
+#### Code:
+
+```java
+
+import java.util.*;
+
+public class tUf {
+
+    static void pascalTriangle(int n) {
+        long ans = 1;
+        System.out.print(ans + " "); // printing 1st element
+
+        // Printing the rest of the part:
+        for (int i = 1; i < n; i++) {
+            ans = ans * (n - i);
+            ans = ans / i;
+            System.out.print(ans + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        pascalTriangle(n);
+    }
+}
+```
+
+**Output:** 1 4 6 4 1
+
+#### Complexity Analysis
+Time Complexity: O(N) where N = given row number. Here we are using only a single loop.
+
+Space Complexity: O(1) as we not using any extra space.
+
+### Conclusion:
+
+| Approach           | Time Complexity    | Space Complexity   |
+|--------------------|--------------------|--------------------|
+| Naive Approach     | O(n * r)           | O(1)               |
+| Optimal Approach   | O(n)               | O(1)               |
