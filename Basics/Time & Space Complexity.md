@@ -46,6 +46,27 @@ Time complexity is a measure of the time an algorithm takes to complete as a fun
 | **Theta**  | Tight bound (average case)  | Balanced Binary Search Tree: **Θ(log n)** |
 | **Omega**  | Lower bound (best case)     | Unsorted Array Search: **Ω(1)**     |
 
+### Key Points for Understanding Time Complexity
+
+#### 1. Examine the Worst Case
+- Always analyze the algorithm's behavior for the **largest possible input** or **most complex scenarios**.
+- Worst-case analysis ensures the algorithm can handle any situation.
+
+**Example**:  
+- Searching in an array requires **O(n)** comparisons in the worst case when the target is at the end or not present.
+
+#### 2. Ignore Constants
+- Focus on the **growth rate** of the algorithm, not exact values or constant factors.
+- Constants and lower-order terms become negligible as input size increases.
+
+**Example**:  
+- **O(3n + 5)** simplifies to **O(n)** because the growth rate is linear.
+
+#### 3. Avoid Lower Bounds for Practical Design
+- While lower bounds (best-case scenarios) are important, focusing on **upper bounds (worst-case scenarios)** ensures the algorithm is efficient under all conditions.
+
+**Example**:  
+- Designing for worst-case performance ensures robust algorithms, even for edge cases.
 
 ---
 
