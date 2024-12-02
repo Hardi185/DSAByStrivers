@@ -268,3 +268,8 @@ Space Complexity: O(1) as we not using any extra space.
 |--------------------|--------------------|--------------------|
 | Naive Approach     | O(n * r)           | O(1)               |
 | Optimal Approach   | O(n)               | O(1)               |
+
+
+## Variation 3: Print the Pascal's triangle
+
+## Approach 1: 
