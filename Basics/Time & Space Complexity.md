@@ -30,6 +30,7 @@ Time complexity is a measure of the time an algorithm takes to complete as a fun
 | **O(2ⁿ)**      | Exponential time                      | Recursive algorithms (e.g., Fibonacci) |
 | **O(n!)**      | Factorial time                        | Permutation generation              |
 
+NOTE: log `n` is for something that varies, like sometimes 1, sometimes 2, sometimes 3
 ### Algorithm Notation: Big O, Θ, and Ω
 
 #### 1. **Big O (O): Upper Bound**
