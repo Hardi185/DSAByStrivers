@@ -8,6 +8,8 @@
 
 Repeat this process until the target is found or the search interval is empty.
 
+![binary-and-linear-search-animations](https://github.com/user-attachments/assets/3053f3be-5c97-4c06-97ad-c7bb43693bff)
+
 ## Why Binary Search is Efficient
 
 - **Time Complexity**: O(log n), where `n` is the number of elements in the array. This is much faster than linear search, which has a time complexity of O(n), especially for large arrays.
