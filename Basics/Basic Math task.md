@@ -274,7 +274,7 @@ Divisors of 28:
     - If the number is divisible by any loop variable, it is not prime.
     - Otherwise, it is prime.
 
-**Why Check Only Up to the Square Root?**
+**-->Why Check Only Up to the Square Root?**
 
 Example: Checking the divisors of `36`
 
