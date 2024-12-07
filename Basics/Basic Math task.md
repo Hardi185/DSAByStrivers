@@ -267,6 +267,8 @@ Divisors of 28:
 ---
 
 # 6. Check Prime Number
+- a number that can be divided exactly only by itself and 1, for example 7, 17 and 41
+- **NOTE:** Even if 1 can only be divided by itself it is not prime number
 
 **Algorithm:**
 
