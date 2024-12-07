@@ -30,3 +30,37 @@ public class ReverseNumber {
 ```
 
 **Output:** Reversed number: 54321
+
+**Steps for input `num = 12345`:**
+
+1. **Initialize** `reversed = 0`
+   - `num = 12345`
+
+2. **First iteration**:
+   - `digit = 12345 % 10 = 5`
+   - `reversed = 0 * 10 + 5 = 5`
+   - `num = 12345 / 10 = 1234`
+
+3. **Second iteration**:
+   - `digit = 1234 % 10 = 4`
+   - `reversed = 5 * 10 + 4 = 54`
+   - `num = 1234 / 10 = 123`
+
+4. **Third iteration**:
+   - `digit = 123 % 10 = 3`
+   - `reversed = 54 * 10 + 3 = 543`
+   - `num = 123 / 10 = 12`
+
+5. **Fourth iteration**:
+   - `digit = 12 % 10 = 2`
+   - `reversed = 543 * 10 + 2 = 5432`
+   - `num = 12 / 10 = 1`
+
+6. **Fifth iteration**:
+   - `digit = 1 % 10 = 1`
+   - `reversed = 5432 * 10 + 1 = 54321`
+   - `num = 1 / 10 = 0`
+
+7. **Stop** since `num = 0`.
+
+**Final reversed number:** `54321`
