@@ -12,7 +12,7 @@ A **Linked List** is a linear data structure where elements (called nodes) are s
 2. **Doubly Linked List (DLL)**:
    - Each node contains **data**, a reference to the next node, and a reference to the previous node.
 
-![image](https://github.com/user-attachments/assets/b5d44fbd-810b-416f-8e42-7c3112b0bea1)
+![ezgif com-gif-maker1](https://github.com/user-attachments/assets/752e7015-b6c1-44cb-9768-1b728e420c2a)
 
 3. **Circular Linked List**:
    - The last node points back to the first node, forming a circle.
@@ -23,6 +23,75 @@ In a Singly Linked List, each node contains:
 
 - **Data**: The actual data stored in the node.
 - **Next**: A reference to the next node in the list.
+
+### Singly Linked List Code in Java
+
+```java
+class SinglyLinkedList {
+
+    // Node class represents an element in the linked list
+    class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // Head node of the linked list
+    private Node head;
+
+    // Constructor
+    public SinglyLinkedList() {
+        head = null;
+    }
+
+    // Add a node at the end of the list
+    public void addNode(int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = newNode;  // If the list is empty, new node becomes the head
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;  // Traverse till the last node
+            }
+            temp.next = newNode;  // Link the last node to the new node
+        }
+    }
+
+    // Print the linked list
+    public void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) {
+        SinglyLinkedList list = new SinglyLinkedList();
+
+        // Adding nodes
+        list.addNode(10);
+        list.addNode(20);
+        list.addNode(30);
+        list.addNode(40);
+
+        // Print the list
+        list.printList();
+    }
+}
+```
+
+**Output:**
+```yaml
+10 -> 20 -> 30 -> 40 -> null
+```
 
 ### Explanation:
 
@@ -40,6 +109,99 @@ In a Doubly Linked List, each node has:
 - **Prev**: A reference to the previous node.
 
 This allows for traversal in both directions: forward and backward.
+
+### Doubly Linked List Code in Java
+
+```java
+class DoublyLinkedList {
+
+    // Node class represents an element in the doubly linked list
+    class Node {
+        int data;
+        Node next;
+        Node prev;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+            this.prev = null;
+        }
+    }
+
+    // Head node of the doubly linked list
+    private Node head;
+
+    // Constructor
+    public DoublyLinkedList() {
+        head = null;
+    }
+
+    // Add a node at the end of the list
+    public void addNode(int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = newNode;  // If the list is empty, new node becomes the head
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;  // Traverse till the last node
+            }
+            temp.next = newNode;  // Link the last node to the new node
+            newNode.prev = temp;   // Link the new node back to the last node
+        }
+    }
+
+    // Print the doubly linked list in forward direction
+    public void printForward() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " <-> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    // Print the doubly linked list in backward direction
+    public void printBackward() {
+        if (head == null) return;  // If the list is empty, do nothing
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;  // Traverse to the last node
+        }
+
+        // Traverse backward from the last node
+        while (temp != null) {
+            System.out.print(temp.data + " <-> ");
+            temp = temp.prev;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) {
+        DoublyLinkedList list = new DoublyLinkedList();
+
+        // Adding nodes
+        list.addNode(10);
+        list.addNode(20);
+        list.addNode(30);
+        list.addNode(40);
+
+        // Print the list forward
+        list.printForward();
+
+        // Print the list backward
+        list.printBackward();
+    }
+}
+```
+
+**Output:**
+
+```yaml
+10 <-> 20 <-> 30 <-> 40 <-> null
+40 <-> 30 <-> 20 <-> 10 <-> null
+```
 
 ### Explanation:
 
