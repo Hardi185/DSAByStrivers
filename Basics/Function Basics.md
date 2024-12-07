@@ -28,3 +28,34 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+## Pass by Reference in C++
+
+### Definition:
+When a function is called with arguments using references, the **function is given a reference (address)** to the argument. This means that any changes made to the parameter inside the function **directly affect the original variable** in the caller's scope.
+
+
+### Characteristics:
+- **No copy** of the variable is created, which saves memory.
+- Changes made to the parameter inside the function **reflect in the original variable**.
+- Enables efficient manipulation of large data structures or objects.
+
+
+### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+void modifyReference(int &x) {  // Function receives a reference to the argument
+    x = 10; // Modifies the original variable
+}
+
+int main() {
+    int num = 5; // Original value
+    modifyReference(num); // Pass by reference
+    cout << "Value of num: " << num << endl; // Output: 10
+    return 0;
+}
+```
