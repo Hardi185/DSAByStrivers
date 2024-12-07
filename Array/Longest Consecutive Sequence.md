@@ -11,8 +11,12 @@ Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefor
 Example 2:
 Input: nums = [0,3,7,2,5,8,4,6,0,1]
 Output: 9
-__________________________________________________________________________________________________________________________
+
+---
+
 CODE:
+
+```java
 import java.util.Arrays;
 
 class Solution {
@@ -46,8 +50,10 @@ class Solution {
         return longestLength;
     }
 }
+```
 
-__________________________________________________________________________________________________________________________
+---
+
 SOLUTION:
 1)Sort the array
 2)if array length is 0 then return with 0 
