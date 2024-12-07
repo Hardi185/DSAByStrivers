@@ -59,3 +59,10 @@ int main() {
     return 0;
 }
 ```
+
+## Key Differences:
+| **Aspect**           | **Pass by Value**                 | **Pass by Reference**           |
+|----------------------|-----------------------------------|----------------------------------|
+| **Memory Usage**     | Copies the value, uses more memory | Uses the same memory as the original variable |
+| **Effect on Original**| Original remains unchanged         | Original variable may be changed |
+| **Speed**            | Slower due to copying             | Faster, no copying involved      |
