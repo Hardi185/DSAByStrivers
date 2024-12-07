@@ -4,6 +4,8 @@ Stack and Queue are both abstract data structures that allow the storage and ret
 
 ## Stack
 
+![stack](https://github.com/user-attachments/assets/375a8bee-d318-4e6c-811a-671b794fa6e8)
+
 A **Stack** is a Last In, First Out (LIFO) data structure. This means that the last element added to the stack is the first one to be removed.
 
 ### Operations on Stack:
@@ -18,6 +20,8 @@ A **Stack** is a Last In, First Out (LIFO) data structure. This means that the l
 - We check the top element using `peek()` and if the stack is empty using `isEmpty()`.
 
 ## Queue
+
+![1_lbVhTEoFe6OKb8Xf83QSeg](https://github.com/user-attachments/assets/d48a00c2-9c12-4e0c-9b54-8fa6ad67ea5c)
 
 A **Queue** is a First In, First Out (FIFO) data structure. This means that the first element added to the queue is the first one to be removed.
 
