@@ -4,15 +4,17 @@
 Given an array `arr[]`, the task is to find the largest element and return it.
 
 ### Examples:
-- Input: arr = [1, 8, 7, 56, 90]
+1) Input: arr = [1, 8, 7, 56, 90]
 - Output: 90
 - Explanation: The largest element of the given array is 90.
 
-- Input: arr = [5, 5, 5, 5]
+
+2) Input: arr = [5, 5, 5, 5]
 - Output: 5
 - Explanation: The largest element of the given array is 5.
 
-- Input: arr = [10]
+
+3) Input: arr = [10]
 - Output: 10
 - Explanation: There is only one element which is the largest.
 
@@ -74,3 +76,30 @@ public class Solution {
 ### Algo:
 1) Sort the Array.
 2) Return the last index element.
+
+## Time and Space Complexity Comparison
+
+### Approach 1 (Manual Iteration):
+#### Time Complexity: O(n)
+The loop iterates through all the elements of the array once, checking each element to find the largest one. This requires only a single pass through the array.
+
+#### Space Complexity: O(1)
+This approach uses only a few integer variables (largest, n, i), regardless of the size of the input array. Therefore, it uses constant space.
+
+
+### Approach 2 (Sorting the Array):
+#### Time Complexity: O(n log n)
+`Arrays.sort()` uses a variant of the Merge Sort or Tim Sort algorithm, which has a time complexity of O(n log n) for sorting an array. After sorting, you simply access the last element (largest), which takes constant time O(1).
+
+#### Space Complexity: O(n)
+The `Arrays.sort()` method uses O(n) space in the case of Merge Sort, which requires additional memory for the sorting process. In the case of Tim Sort, the space complexity is O(n) as well.
+
+
+### Comparison Table:
+
+| Aspect                | Approach 1 (Manual Iteration) | Approach 2 (Sorting) |
+|-----------------------|-------------------------------|----------------------|
+| **Time Complexity**    | O(n)                          | O(n log n)           |
+| **Space Complexity**   | O(1)                          | O(n)                 |
+| **Best For**           | Finding the largest element only | Scenarios where sorting is needed |
+
