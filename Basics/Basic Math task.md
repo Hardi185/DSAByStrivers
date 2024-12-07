@@ -274,6 +274,23 @@ Divisors of 28:
     - If the number is divisible by any loop variable, it is not prime.
     - Otherwise, it is prime.
 
+**Why Check Only Up to the Square Root?**
+
+Example: Checking the divisors of `36`
+
+The factors of `36` are:  
+`1, 2, 3, 4, 6, 9, 12, 18, 36`
+
+Notice that for each factor smaller than the square root (6), there is a corresponding factor larger than the square root. For instance:
+- `1 * 36`
+- `2 * 18`
+- `3 * 12`
+- `4 * 9`
+- `6 * 6`
+
+This means if a number `N` is divisible by any number larger than its square root, it will have already been "paired" with a factor smaller than the square root earlier in the process. Therefore, there's no need to check beyond the square root of `N` because we would be duplicating checks.
+
+
 **Code:**
 
 ```java
