@@ -64,3 +64,93 @@ public class ReverseNumber {
 7. **Stop** since `num = 0`.
 
 **Final reversed number:** `54321`
+
+---
+
+# 2. Palindrome
+
+**Algorithm:**
+
+- Reverse the number.
+- Check if the reversed number equals the original number.
+- If true, the number is a palindrome.
+
+**Code:**
+
+```java
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        int num = 121;
+        if (isPalindrome(num)) {
+            System.out.println(num + " is a palindrome.");
+        } else {
+            System.out.println(num + " is not a palindrome.");
+        }
+    }
+
+    public static boolean isPalindrome(int num) {
+        int original = num;
+        int reversed = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        return original == reversed;
+    }
+}
+```
+**Output:** 
+121 is a palindrome.
+
+---
+
+# 3. GCD or HCF
+
+**Algorithm:**
+
+- Use the Euclidean algorithm:
+    - If b == 0, a is the GCD.
+    - Else, compute gcd(b, a % b) recursively.
+
+**Code:**
+
+```java
+public class GCDExample {
+    public static void main(String[] args) {
+        int a = 56, b = 98;
+        int gcd = findGCD(a, b);
+        System.out.println("GCD of " + a + " and " + b + ": " + gcd);
+    }
+
+    public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return findGCD(b, a % b);
+    }
+}
+```
+
+**Output:** 
+GCD of 56 and 98: 14
+
+**Steps for input** `a = 56`, `b = 98`:
+
+1. **Call** `findGCD(56, 98)`
+   - Since `b != 0`, we call `findGCD(98, 56 % 98)` → `findGCD(98, 56)`
+
+2. **Call** `findGCD(98, 56)`
+   - Since `b != 0`, we call `findGCD(56, 98 % 56)` → `findGCD(56, 42)`
+
+3. **Call** `findGCD(56, 42)`
+   - Since `b != 0`, we call `findGCD(42, 56 % 42)` → `findGCD(42, 14)`
+
+4. **Call** `findGCD(42, 14)`
+   - Since `b != 0`, we call `findGCD(14, 42 % 14)` → `findGCD(14, 0)`
+
+5. **Call** `findGCD(14, 0)`
+   - Since `b == 0`, we return `a = 14`.
+
+**Result:**
+- The GCD of 56 and 98 is **14**.
