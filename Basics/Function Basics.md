@@ -1,4 +1,4 @@
-#What is a Function:
+# What is a Function:
 
 A **function** is a block of reusable code that performs a specific task. Functions allow you to break down your program into smaller, manageable pieces. They promote modularity, reusability, and better organization of code.
 
