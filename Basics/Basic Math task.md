@@ -263,3 +263,55 @@ Divisors of 28:
 
 **Result:**
 - The divisors of `28` are: `1 2 4 7 14 28`.
+
+---
+
+# 6. Check Prime Number
+
+**Algorithm:**
+
+- Loop from 2 to the square root of the number.
+    - If the number is divisible by any loop variable, it is not prime.
+    - Otherwise, it is prime.
+
+**Code:**
+
+```java
+public class PrimeCheck {
+    public static void main(String[] args) {
+        int num = 29;
+        if (isPrime(num)) {
+            System.out.println(num + " is a prime number.");
+        } else {
+            System.out.println(num + " is not a prime number.");
+        }
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
+```
+
+**Output:**
+29 is a prime number.
+
+**Steps for input** `num = 29`:
+
+1. **Check if `num <= 1`:**
+   - Since `29` is greater than `1`, proceed to the next step.
+
+2. **Loop from `i = 2` to `sqrt(29) ≈ 5.39`:**
+   - For `i = 2`, `29 % 2 != 0`, so continue.
+   - For `i = 3`, `29 % 3 != 0`, so continue.
+   - For `i = 4`, `29 % 4 != 0`, so continue.
+   - For `i = 5`, `29 % 5 != 0`, so continue.
+
+3. **Since no divisor was found, return `true`.**
+
+**Result:**
+- `29` is a prime number.
