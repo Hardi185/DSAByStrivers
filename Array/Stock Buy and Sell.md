@@ -15,8 +15,12 @@ Example 2:
 Input: prices = [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
-__________________________________________________________________________________________________________________________
+
+---
+
 CODE:
+
+```java
 class Solution {
     public int maxProfit(int[] prices) {
         int minPrice = Integer.MAX_VALUE;
@@ -37,7 +41,10 @@ class Solution {
         return maxProfit;
     }
 }
-__________________________________________________________________________________________________________________________
+```
+
+---
+
 SOLUTION:
 1)Initialize minPrice and maxProfit
 2)Loop through the prices, if we find the minprice during that then update minPrice
