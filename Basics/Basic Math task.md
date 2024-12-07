@@ -154,3 +154,112 @@ GCD of 56 and 98: 14
 
 **Result:**
 - The GCD of 56 and 98 is **14**.
+
+---
+
+# 4. Armstrong Number
+
+**Algorithm:**
+- For each digit, compute its cube (or power based on digit count).
+- Sum up the cubes.
+- If the sum equals the original number, it is an Armstrong number.
+
+**Code:**
+
+```java
+public class ArmstrongNumber {
+    public static void main(String[] args) {
+        int num = 153;
+        if (isArmstrong(num)) {
+            System.out.println(num + " is an Armstrong number.");
+        } else {
+            System.out.println(num + " is not an Armstrong number.");
+        }
+    }
+
+    public static boolean isArmstrong(int num) {
+        int original = num, sum = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            sum += digit * digit * digit;
+            num /= 10;
+        }
+        return sum == original;
+    }
+}
+```
+
+**Output:** 
+153 is an Armstrong number.
+
+**Steps for input** `num = 153`:
+
+1. **Initialize** `original = 153`, `sum = 0`
+   - `num = 153`
+
+2. **First iteration:**
+   - `digit = 153 % 10 = 3`
+   - `sum = 0 + 3^3 = 27`
+   - `num = 153 / 10 = 15`
+
+3. **Second iteration:**
+   - `digit = 15 % 10 = 5`
+   - `sum = 27 + 5^3 = 27 + 125 = 152`
+   - `num = 15 / 10 = 1`
+
+4. **Third iteration:**
+   - `digit = 1 % 10 = 1`
+   - `sum = 152 + 1^3 = 153`
+   - `num = 1 / 10 = 0`
+
+5. **Stop** since `num = 0`.
+
+**Result:**
+- Since `sum = 153` and `original = 153`, **153 is an Armstrong number**.
+
+---
+
+# 5. Print All Divisors
+
+**Algorithm:**
+
+- Loop from 1 to the number.
+- Check if the number is divisible by the loop variable.
+- If true, print the divisor.
+
+**Code:**
+
+```java
+public class Divisors {
+    public static void main(String[] args) {
+        int num = 28;
+        System.out.println("Divisors of " + num + ":");
+        printDivisors(num);
+    }
+
+    public static void printDivisors(int num) {
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+```
+
+**Output:**
+Divisors of 28:
+1 2 4 7 14 28
+
+**Steps for input** `num = 28`:
+
+1. **Loop from 1 to 28:**
+   - For `i = 1`, `28 % 1 == 0`, so print `1`.
+   - For `i = 2`, `28 % 2 == 0`, so print `2`.
+   - For `i = 4`, `28 % 4 == 0`, so print `4`.
+   - For `i = 7`, `28 % 7 == 0`, so print `7`.
+   - For `i = 14`, `28 % 14 == 0`, so print `14`.
+   - For `i = 28`, `28 % 28 == 0`, so print `28`.
+
+**Result:**
+- The divisors of `28` are: `1 2 4 7 14 28`.
