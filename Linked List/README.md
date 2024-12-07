@@ -7,8 +7,12 @@ A **Linked List** is a linear data structure where elements (called nodes) are s
 1. **Singly Linked List (SLL)**: 
    - Each node contains **data** and a reference (or pointer) to the next node.
 
+![Traversal-of-Singly-Linked-List](https://github.com/user-attachments/assets/f03b69de-3cbf-4ace-b136-192ca34d2d59)
+
 2. **Doubly Linked List (DLL)**:
    - Each node contains **data**, a reference to the next node, and a reference to the previous node.
+
+![image](https://github.com/user-attachments/assets/b5d44fbd-810b-416f-8e42-7c3112b0bea1)
 
 3. **Circular Linked List**:
    - The last node points back to the first node, forming a circle.
