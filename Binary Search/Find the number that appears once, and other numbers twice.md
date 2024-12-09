@@ -1,79 +1,197 @@
-PROBLEM:
-You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.
+# Single Element in a Sorted Array
 
-Return the single element that appears only once.
+## Problem Description
+You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once. Return the single element that appears only once.
 
-Your solution must run in O(log n) time and O(1) space.
-Example 1:
+### Constraints
+- Your solution must run in `O(log n)` time and `O(1)` space.
 
-Input: nums = [1,1,2,3,3,4,4,8,8]
-Output: 2
-Example 2:
+### Example
+**Input:**
+```plaintext
+nums = [1,1,2,3,3,4,4,8,8]
+```
+**Output:**
+```plaintext
+2
+```
 
-Input: nums = [3,3,7,7,10,11,11]
-Output: 10
-____________________________________________________________________________________________________________________________________
-CODE:
-//binary search approach
-public class Solution {
-    public static int singleNonDuplicate(int[] arr) {
-        int n = arr.length; // Size of the array.
+**Input:**
+```plaintext
+nums = [3,3,7,7,10,11,11]
+```
+**Output:**
+```plaintext
+10
+```
 
-        // Edge cases:
-        if (n == 1)
-            return arr[0];
-        if (arr[0] != arr[1])
-            return arr[0];
-        if (arr[n - 1] != arr[n - 2])
-            return arr[n - 1];
+---
 
-        int low = 1, high = n - 2;
-        while (low <= high) {
-            int mid = (low + high) / 2;
+## Approach 1: Naive Linear Search
 
-            // If arr[mid] is the single element:
-            if (arr[mid] != arr[mid + 1] && arr[mid] != arr[mid - 1]) {
-                return arr[mid];
+### Algorithm
+1. Iterate through the array.
+2. For each element, count its occurrences using an inner loop.
+3. If the count is `1`, return that number.
+
+**Code:**
+
+```java
+import java.util.*;
+
+public class tUf {
+    public static int getSingleElement(int []arr) {
+        // Size of the array:
+        int n = arr.length;
+
+        //Run a loop for selecting elements:
+        for (int i = 0; i < n; i++) {
+            int num = arr[i]; // selected element
+            int cnt = 0;
+
+            //find the occurrence using linear search:
+            for (int j = 0; j < n; j++) {
+                if (arr[j] == num)
+                    cnt++;
             }
 
-            // We are in the left:
-            if ((mid % 2 == 1 && arr[mid] == arr[mid - 1])
-                    || (mid % 2 == 0 && arr[mid] == arr[mid + 1])) {
-                // Eliminate the left half:
-                low = mid + 1;
-            }
-            // We are in the right:
-            else {
-                // Eliminate the right half:
-                high = mid - 1;
+            // if the occurrence is 1 return ans:
+            if (cnt == 1) return num;
+        }
+
+        //This line will never execute
+        //if the array contains a single element.
+        return -1;
+    }
+
+    public static void main(String args[]) {
+        int[] arr = {4, 1, 2, 1, 2};
+        int ans = getSingleElement(arr);
+        System.out.println("The single element is: " + ans);
+
+    }
+}
+```
+
+---
+
+## Approach 2: Hash Array
+
+### Algorithm
+1. Find the largest number (`maxi`) in the array.
+2. Create a hash array of size `maxi + 1` to count frequencies.
+3. Traverse the array to populate the hash array(to count frequnecy, In the HashMap, the key 4 has a value of 1, so 4 is returned as the result.).
+4. Traverse the array again to find the unique element by checking the frequency in the hash array.
+
+**Code:**
+
+```java
+import java.util.*;
+
+public class tUf {
+    public static int getSingleElement(int []arr) {
+        //size of the array:
+        int n = arr.length;
+
+        // Find the maximum element:
+        int maxi = arr[0];
+        for (int i = 0; i < n; i++) {
+            maxi = Math.max(maxi, arr[i]);
+        }
+
+        // Declare hash array of size maxi+1
+        // And hash the given array:
+        int[] hash = new int[maxi + 1];
+        for (int i = 0; i < n; i++) {
+            hash[arr[i]]++;
+        }
+
+        //Find the single element and return the answer:
+        for (int i = 0; i < n; i++) {
+            if (hash[arr[i]] == 1)
+                return arr[i];
+        }
+
+        //This line will never execute
+        //if the array contains a single element.
+        return -1;
+    }
+
+    public static void main(String args[]) {
+        int[] arr = {4, 1, 2, 1, 2};
+        int ans = getSingleElement(arr);
+        System.out.println("The single element is: " + ans);
+
+    }
+}
+```
+
+---
+
+## Approach 3: HashMap
+
+### Algorithm
+1. Create a `HashMap` to store the frequency of each number.
+2. Traverse the array and populate the map.
+3. Traverse the map to find the key with a value of `1`.
+
+**Code:**
+
+```java
+import java.util.*;
+
+public class tUf {
+    public static int getSingleElement(int []arr) {
+        //size of the array:
+        int n = arr.length;
+
+        // Declare the hashmap.
+        // And hash the given array:
+        HashMap<Integer, Integer> mpp = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            int value = mpp.getOrDefault(arr[i], 0);
+            mpp.put(arr[i], value + 1);
+        }
+
+        //Find the single element and return the answer:
+        for (Map.Entry<Integer, Integer> it : mpp.entrySet()) {
+            if (it.getValue() == 1) {
+                return it.getKey();
             }
         }
 
-        // Dummy return statement:
+        //This line will never execute
+        //if the array contains a single element.
         return -1;
     }
+
+    public static void main(String args[]) {
+        int[] arr = {4, 1, 2, 1, 2};
+        int ans = getSingleElement(arr);
+        System.out.println("The single element is: " + ans);
+
+    }
 }
-____________________________________________________________________________________________________________________________________
-SOLUTION:
---> Let us suppose we have array like this:
-1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6
+```
 
+---
 
-1)Now for first element 1 we need to compare with right element only, and for last element we need to compare with left element only
-2)If we do not find any mismatch(both are equal) till now, we'll shrink the range from both the side(to reduce comparisions)
-3)For all the element which are middle elements, we need to check this:
--->one thing we can observe if the single element 4 will not match the value from the element right to it and left to it
-3 != 4, 4 != 5, when this case if find in mid element we'll return
+## Complexity Comparison
 
--->if mid is not at that point(we discussed above), either we need to eliminate left half or right half, now how we'll decide that?
-as we can observer this array can be seen based on indexes as:
-(even, odd)(even, odd)(even, odd) 4 (odd, even)(odd, even)
-based on indexes value we can say: 
+| Approach      | Time Complexity | Space Complexity |
+|---------------|-----------------|------------------|
+| Naive Linear  | O(n^2)          | O(1)             |
+| Hash Array    | O(n)            | O(maxi)          |
+| HashMap       | O(n)            | O(n)             |
 
--->we're on left half and ans will be on right half
-if current index is even and value after that index is same or
-if current index is odd and value before that index is same
+---
 
--->we're on right half and ans will be on left half
-if current index is odd and value after that index is same or
-if current index is even and value before that index is same
+## Optimal Solution (Binary Search)
+
+To meet the `O(log n)` time complexity requirement, a binary search approach is used:
+1. Leverage the sorted nature of the array.
+2. Use binary search to locate the unique element by checking the parity of indices.
+
+### Complexity
+- **Time Complexity:** `O(log n)` for binary search.
+- **Space Complexity:** `O(1)`.
