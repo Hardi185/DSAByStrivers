@@ -143,19 +143,3 @@ public class LinkedList {
 - **O(1):** As we are not using any extra space apart from the new node.
 
 ---
-
-## Output
-
-For the given examples:
-
-**Example 1:**
-```
-Modified LinkedList: 1->2->3->4->5->6->null
-```
-
-**Example 2:**
-```
-Modified LinkedList: 5->4->1->null
-```
-
----
