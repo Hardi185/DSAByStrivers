@@ -32,7 +32,7 @@ class BubbleSort {
 }
 _____________________________________________________________________________________________________________________________________________________________________________
 
-NOTES:
+NOTES: [Swap adjacents and greatest one will be at last in first pass, works like that]
 
 1)Have inner and outer loop for traversing 
 2)Compare and switch the adjacents in inner loop
