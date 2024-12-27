@@ -69,6 +69,43 @@ public class Main {
 
 ## Approach 3:
 ```java
+class Solution {
+    public void sortColors(int[] nums) {
+        int i;
+        int n=nums.length;
+        int a=0,b=0,c=0;
+        for(i=0;i<n;i++)
+        {
+            if(nums[i]==0)
+            {
+                a++;b++;c++;
+            }
+            if(nums[i]==1)
+            {
+                b++;c++;
+            }
+            if(nums[i]==2)
+                c++;
+        }
+        for(i=0;i<n;i++)
+        {
+            if(i<a)
+                nums[i]=0;
+            else if(i>=a&&i<b)
+                nums[i]=1;
+            else
+                nums[i]=2;
+        }
+                        
+        
+        }
+    }
+```
+
+---
+
+## Approach 4:
+```java
 ```
 
 ---
