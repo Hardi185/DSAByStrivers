@@ -19,7 +19,7 @@ rotate 2 steps to the right: [3,4,5,6,7,1,2]
 
 ---
 
-## CODE:
+## Approach 1:
 ```java
 class Solution {
     public void rotate(int[] nums, int k) {
@@ -71,3 +71,67 @@ class Solution {
 }
 ```
 
+---
+
+## Approach 2:
+```java
+import java.util.*;
+
+public class Main {
+  // Function to rotate the array
+  public static void rotateArray(int[] arr, int n, int k, String direction) {
+    if (n == 0)
+      return;
+
+    k = k % n; // Adjust k to ensure it is within the bounds of the array length
+    if (k > n)
+      return;
+
+    if (direction.equalsIgnoreCase("left")) {
+      // Left Rotation
+      int[] temp = new int[k]; // Temporary array to store the first k elements
+      for (int i = 0; i < k; i++) {
+        temp[i] = arr[i];
+      }
+      for (int i = 0; i < n - k; i++) {
+        arr[i] = arr[i + k];
+      }
+      for (int i = n - k; i < n; i++) {
+        arr[i] = temp[i - n + k];
+      }
+    } else if (direction.equalsIgnoreCase("right")) {
+      // Right Rotation
+      int[] temp = new int[k]; // Temporary array to store the last k elements
+      for (int i = 0; i < k; i++) {
+        temp[i] = arr[n - k + i];
+      }
+      for (int i = n - 1; i >= k; i--) {
+        arr[i] = arr[i - k];
+      }
+      for (int i = 0; i < k; i++) {
+        arr[i] = temp[i];
+      }
+    } else {
+      System.out.println("Invalid direction! Use 'left' or 'right'.");
+    }
+  }
+
+  public static void main(String[] args) {
+    int[] arr = {1, 2, 3, 4, 5, 6, 7};
+    int n = arr.length;
+    int k = 2;
+
+    // Rotate left
+    System.out.println("Original Array: " + Arrays.toString(arr));
+    rotateArray(arr, n, k, "left");
+    System.out.println("After Left Rotation by " + k + ": " + Arrays.toString(arr));
+
+    // Reset array
+    arr = new int[]{1, 2, 3, 4, 5, 6, 7};
+
+    // Rotate right
+    rotateArray(arr, n, k, "right");
+    System.out.println("After Right Rotation by " + k + ": " + Arrays.toString(arr));
+  }
+}
+```
