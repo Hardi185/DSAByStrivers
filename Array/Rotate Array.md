@@ -135,3 +135,13 @@ public class Main {
   }
 }
 ```
+
+---
+
+## Complexity Comparison:
+
+| **Approach**      | **Time Complexity**                            | **Space Complexity**       | **Explanation**                                                                                                                                                  |
+|--------------------|------------------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Approach 1**    | \(O(k \cdot n)\)                               | \(O(1)\)                   | Each of the \(k\) rotations shifts all \(n\) elements in the array one position, leading to \(O(k \cdot n)\). Space usage is constant since no additional storage is used. |
+| **Approach 2**    | \(O(n)\)                                       | \(O(k)\)                   | The rotation is achieved in three distinct passes: storing \(k\) elements in a temporary array, shifting the elements, and restoring the temporary array. This makes the time complexity \(O(n)\), while the temporary storage adds an \(O(k)\) space overhead. |
+    
