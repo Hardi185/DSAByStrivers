@@ -80,6 +80,61 @@ class Main {
 
 ## Approach 2:
 ```java
+public class Main {
+
+    // Function to find the celebrity
+    public static int findCelebrity(int[][] arr, int n) {
+        int top = 0, down = n - 1;
+
+        // Narrow down the celebrity candidate using two pointers (top and down)
+        while (top < down) {
+            if (arr[top][down] == 1) {
+                // top knows down, so top can't be a celebrity
+                top++;
+            } else if (arr[down][top] == 1) {
+                // top doesn't know down, so down can't be a celebrity
+                down--;
+            }
+            else if(arr[top][down] == 0 && arr[down][top] == 0){
+                top++;
+                down--;
+            }
+        }
+
+        // Now top == down, we have a candidate at index top (or down)
+        int candidate = top;
+
+        // Verify if candidate is a celebrity
+        for (int i = 0; i < n; i++) {
+            // A celebrity knows no one (arr[candidate][i] should be 0 for all i != candidate)
+            // Everyone knows the celebrity (arr[i][candidate] should be 1 for all i != candidate)
+            if (i != candidate && (arr[candidate][i] == 1 || arr[i][candidate] == 0)) {
+                return -1; // No celebrity found
+            }
+        }
+
+        // If all checks passed, candidate is a celebrity
+        return candidate;
+    }
+
+    public static void main(String[] args) {
+        int[][] arr = {
+            {0, 1, 0, 0},
+            {0, 0, 0, 0},
+            {1, 1, 0, 0},
+            {0, 1, 0, 0}
+        };
+
+        int n = arr.length;
+        int celebrity = findCelebrity(arr, n);
+        
+        if (celebrity == -1) {
+            System.out.println("No celebrity found");
+        } else {
+            System.out.println("Celebrity is person at index: " + celebrity);
+        }
+    }
+}
 ```
 
 ---
