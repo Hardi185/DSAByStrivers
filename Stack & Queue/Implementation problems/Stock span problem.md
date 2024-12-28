@@ -76,6 +76,69 @@ class StockSpanner {
     }
 }
 ```
+
+## Approach 2:
+```java
+import java.util.Stack;
+
+class Pair {
+    int price;
+    int index;
+
+    public Pair(int price, int index) {
+        this.price = price;
+        this.index = index;
+    }
+}
+
+class StockSpanner {
+    private Stack<Pair> stack;
+    private int index;
+
+    // Initialize the StockSpanner object.
+    public StockSpanner() {
+        stack = new Stack<>();
+        index = -1; // Start index at -1 since we increment before usage.
+    }
+
+    // Returns the span of the stock's price for the current day.
+    public int next(int price) {
+        index++; // Increment index for the current day.
+
+        // Remove elements from the stack that have prices less than or equal to the current price.
+        while (!stack.isEmpty() && stack.peek().price <= price) {
+            stack.pop();
+        }
+
+        // Calculate the span:
+        int span = stack.isEmpty() ? index + 1 : index - stack.peek().index;
+
+        // Push the current price and its index onto the stack.
+        stack.push(new Pair(price, index));
+
+        return span;
+    }
+
+    public static void main(String[] args) {
+        StockSpanner stockSpanner = new StockSpanner();
+
+        System.out.println(stockSpanner.next(100)); // Output: 1
+        System.out.println(stockSpanner.next(80));  // Output: 1
+        System.out.println(stockSpanner.next(60));  // Output: 1
+        System.out.println(stockSpanner.next(70));  // Output: 2
+        System.out.println(stockSpanner.next(60));  // Output: 1
+        System.out.println(stockSpanner.next(75));  // Output: 4
+        System.out.println(stockSpanner.next(85));  // Output: 6
+    }
+}
+```
 ---
 
 ## Complexity comparision:
+
+| **Metric**          | **Brute Force (Approach 1)**    | **Stack (Approach 2)**        |
+|----------------------|----------------------------------|--------------------------------|
+| **Time Complexity**  | \(O(n^2)\)                     | \(O(n)\)                      |
+| **Space Complexity** | \(O(n)\)                       | \(O(n)\)                      |
+| **Efficiency**       | Slower for large datasets      | Much faster for large datasets|
+
