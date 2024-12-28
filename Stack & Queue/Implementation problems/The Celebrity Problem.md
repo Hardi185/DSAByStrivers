@@ -36,9 +36,10 @@ class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (arr[i][j] == 1) {
+                    // Person i knows someone
                     iKnow[i]++;
+                    //who person i knows
                     knowsMe[j]++; 
-                    // Person i knows person j
                 }
             }
         }
