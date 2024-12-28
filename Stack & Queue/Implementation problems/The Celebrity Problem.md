@@ -25,6 +25,56 @@ Here 1 will be celebrity because he knows no one --> that row is 0, everyone kno
 
 ## Approach 1:
 ```java
+class Main {
+    // Function to find the celebrity
+    public static int findCelebrity(int[][] arr, int n) {
+        // Arrays to store the number of people each person knows and is known by
+        int[] knowsMe = new int[n];  // knowsMe[i] = number of people that person i is known by
+        int[] iKnow = new int[n];    // iKnow[i] = number of people person i knows
+        
+        // Populate the knowsMe and iKnow arrays
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (arr[i][j] == 1) {
+                    iKnow[i]++;
+                    knowsMe[j]++; 
+                    // Person i knows person j
+                }
+            }
+        }
+
+        // Now find the celebrity, checking the conditions
+        for (int i = 0; i < n; i++) {
+            // Person i is a celebrity if:
+            // - Person i knows no one (iKnow[i] == 0)
+            // - Person i is known by everyone (knowsMe[i] == n-1)
+            if (iKnow[i] == 0 && knowsMe[i] == n-1) {
+                return i;  // Return the index of the celebrity
+            }
+        }
+
+        // No celebrity found
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        // Example input
+        int[][] arr = {
+            {0, 1, 0},
+            {0, 0, 0},
+            {1, 1, 0}
+        };
+
+        int n = arr.length;
+        int celebrity = findCelebrity(arr, n);
+
+        if (celebrity == -1) {
+            System.out.println("No celebrity found.");
+        } else {
+            System.out.println("Celebrity is at index: " + celebrity);
+        }
+    }
+}
 ```
 
 ## Approach 2:
