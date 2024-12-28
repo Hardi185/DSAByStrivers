@@ -141,3 +141,10 @@ public class Main {
 
 ## Complexity comparision:
 
+| **Metric**            | **Approach 1 (Brute Force)**                                    | **Approach 2 (Two Pointers)**                                     |
+|-----------------------|------------------------------------------------------------------|-------------------------------------------------------------------|
+| **Time Complexity**    | O(n²) (due to two nested loops for populating the `knowsMe` and `iKnow` arrays) | O(n) (due to the two-pointer technique reducing the problem to a linear scan) |
+| **Space Complexity**   | O(n) (due to the additional arrays `knowsMe` and `iKnow` to store knowledge relationships) | O(1) (constant space is used, just two pointers)                   |
+| **Efficiency**         | Slower for larger datasets due to nested loops.                 | Much faster, especially for larger datasets, due to linear complexity |
+| **Verification Step**  | Requires checking all candidates against the conditions (O(n))  | Verification is done once after narrowing down the celebrity (O(n)) |
+
