@@ -21,7 +21,7 @@ Input:
 Output:
 [null, 1, 1, 1, 2, 1, 4, 6]
 
-Explanation
+Explanation:
 StockSpanner stockSpanner = new StockSpanner();
 stockSpanner.next(100); // return 1
 stockSpanner.next(80);  // return 1
