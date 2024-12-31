@@ -97,8 +97,8 @@ A graph is a data structure used to model pairwise relationships between objects
 
 ### Unweighted Graph
 - **Definition**: All edges are treated equally, with no associated weight.
+  
 ![image](https://github.com/user-attachments/assets/a30353ad-cb32-4d13-a5bd-8d651a828552)
-
 
 ### Subgraph
 - **Definition**: A graph formed from a subset of the vertices and edges of another graph.
