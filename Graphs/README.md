@@ -48,10 +48,18 @@ A graph is a data structure used to model pairwise relationships between objects
 - **Advantages**: Good for dense graphs.
 - **Space Complexity**: `O(n²)` where `n` is the number of vertices.
 
+![image](https://github.com/user-attachments/assets/5dabadd4-3f2e-4587-86c7-f66fcabd1fb2)
+
+![image](https://github.com/user-attachments/assets/c7abcf71-41cc-4e5c-ad10-c916266606a7)
+  
+
 ### Adjacency List
 - **Definition**: A more space-efficient representation where each vertex has a list of all the vertices it is connected to.
 - **Advantages**: Suitable for sparse graphs.
 - **Space Complexity**: `O(n + e)` where `e` is the number of edges.
+
+![image](https://github.com/user-attachments/assets/c9d20554-faeb-4443-bcb7-69838103c50e)
+
 
 ### Edge List
 - **Definition**: The graph is represented by a list of edges. Each edge is an unordered or ordered pair (depending on whether the graph is undirected or directed).
@@ -68,10 +76,15 @@ A graph is a data structure used to model pairwise relationships between objects
 - **Directed Graph**:
   - **Indegree**: Number of incoming edges to the vertex.
   - **Outdegree**: Number of outgoing edges from the vertex.
+ 
+![image](https://github.com/user-attachments/assets/0373e795-da53-479c-befa-9432cf9bee32)
+
 
 ### Connected Graph
 - **Undirected Graph**: There is a path between every pair of vertices.
 - **Directed Graph**: Strongly connected if there is a path between every pair of vertices in both directions.
+
+![image](https://github.com/user-attachments/assets/c34828b4-19e9-4c6a-94d5-d086a582ef08)
 
 ### Disconnected Graph
 - **Definition**: There are two or more vertices that do not have a path between them.
@@ -79,11 +92,17 @@ A graph is a data structure used to model pairwise relationships between objects
 ### Weighted Graph
 - **Definition**: Each edge has a weight (or cost) associated with it, often used to represent distances or costs.
 
+![image](https://github.com/user-attachments/assets/a38511d1-0e7e-4437-bf58-947a52836e40)
+
 ### Unweighted Graph
 - **Definition**: All edges are treated equally, with no associated weight.
+![image](https://github.com/user-attachments/assets/a30353ad-cb32-4d13-a5bd-8d651a828552)
+
 
 ### Subgraph
 - **Definition**: A graph formed from a subset of the vertices and edges of another graph.
+
+![image](https://github.com/user-attachments/assets/502bb77c-4cc5-4716-8784-3734f9db5bce)
 
 ### Tree
 - **Definition**: A special type of acyclic graph where there is exactly one path between any two vertices.
@@ -95,6 +114,8 @@ A graph is a data structure used to model pairwise relationships between objects
 - **Definition**: Explores as far down a branch as possible before backtracking.
 - **Usage**: Pathfinding, cycle detection, topological sorting.
 - **Implementation**: Uses a stack or recursion.
+
+![image](https://github.com/user-attachments/assets/44354f1a-c3df-4b2f-aa37-1e2fcccdde59)
 
 ### Breadth-First Search (BFS)
 - **Definition**: Explores the graph level by level, visiting all neighbors of a node before moving to the next level.
@@ -114,6 +135,8 @@ A graph is a data structure used to model pairwise relationships between objects
 - **Edge Count**:
   - **Undirected Graph**: `n(n-1)/2`
   - **Directed Graph**: `n(n-1)`
+
+![image](https://github.com/user-attachments/assets/1e9b2555-653b-4d84-b481-c3d8dd2cc226)
 
 ### Bipartite Graph
 - **Definition**: Vertices can be divided into two disjoint sets such that every edge connects a vertex in one set to a vertex in the other set.
