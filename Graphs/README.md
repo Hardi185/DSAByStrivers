@@ -15,14 +15,23 @@ A graph is a data structure used to model pairwise relationships between objects
 - **Representation**: Ordered pair of vertices, such as `(A → B)`.
 - **Example**: A one-way street between two cities.
 
+![image](https://github.com/user-attachments/assets/b41d4d6f-08f8-4606-8182-adf1dff9f081)
+
+
 ### Undirected Graph
 - **Definition**: In an undirected graph, edges do not have a direction. The edge simply connects two vertices.
 - **Representation**: Unordered pair of vertices, such as `{A, B}`.
 - **Example**: A road between two cities where traffic can go in both directions.
 
+![image](https://github.com/user-attachments/assets/452b6ec2-1a24-4d31-8b11-ac7b7685fc49)
+
+
 ### Cyclic Graph
 - **Definition**: Contains at least one cycle, i.e., a path that starts and ends at the same vertex, traversing at least one edge more than once.
 - **Example**: A network where `A → B → C → A` forms a cycle.
+
+![image](https://github.com/user-attachments/assets/348ef729-6c92-4a77-981d-fde0298b204c)
+
 
 ### Acyclic Graph
 - **Definition**: Does not contain any cycles. There are no closed loops in the graph.
