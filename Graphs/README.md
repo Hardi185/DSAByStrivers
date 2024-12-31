@@ -15,13 +15,14 @@ A graph is a data structure used to model pairwise relationships between objects
 - **Representation**: Ordered pair of vertices, such as `(A → B)`.
 - **Example**: A one-way street between two cities.
 
-![image](https://github.com/user-attachments/assets/b41d4d6f-08f8-4606-8182-adf1dff9f081)
 
+![image](https://github.com/user-attachments/assets/b41d4d6f-08f8-4606-8182-adf1dff9f081)
 
 ### Undirected Graph
 - **Definition**: In an undirected graph, edges do not have a direction. The edge simply connects two vertices.
 - **Representation**: Unordered pair of vertices, such as `{A, B}`.
 - **Example**: A road between two cities where traffic can go in both directions.
+
 
 ![image](https://github.com/user-attachments/assets/452b6ec2-1a24-4d31-8b11-ac7b7685fc49)
 
