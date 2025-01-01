@@ -1,6 +1,12 @@
 # Patterns:
 
-![image](https://github.com/user-attachments/assets/96e3b487-e49d-4265-903f-c73ba27b0026)
+```yaml
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+```
 
 ### Code:
 ```java
@@ -34,17 +40,15 @@ class Main {
 }
 ```
 
-```yaml
-* * * * *
-* * * * *
-* * * * *
-* * * * *
-* * * * *
-```
-
 ---
 
-![image](https://github.com/user-attachments/assets/628873a2-7bb7-4c1b-948a-c8628ce952ef)
+```yaml
+* 
+* * 
+* * * 
+* * * * 
+* * * * *
+```
 
 ### Code:
 ```java
@@ -78,17 +82,15 @@ class Main {
 }
 ```
 
-```yaml
-* 
-* * 
-* * * 
-* * * * 
-* * * * *
-```
-
 ---
 
-![image](https://github.com/user-attachments/assets/c3f7aa14-ec5e-471d-8de4-6b9c4b0b0e43)
+```yaml
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+```
 
 ### Code:
 ```java
@@ -122,11 +124,4 @@ class Main {
         pattern3(N);
     }
 }
-```
-```yaml
-1
-1 2
-1 2 3
-1 2 3 4
-1 2 3 4 5
 ```
