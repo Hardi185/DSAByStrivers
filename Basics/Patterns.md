@@ -2,7 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/96e3b487-e49d-4265-903f-c73ba27b0026)
 
-## Code:
+### Code:
 ```java
 class Main {
    static void pattern1(int N)
