@@ -61,5 +61,69 @@ public static void main(String args[]) {
 
 ---
 
+## Tabulation:
 
+### Algo:
+1. Declare dp[] with n+1.
+2. First initialize the base condition values, i.e i=0 and i=1 of the dp array as 0 and 1 respectively.
+3. Set an iterative loop that traverses the array( from index 2 to n) and for every index set its value as dp[i-1] + dp[i-2].
+   
+### Code:
+```java
+import java.util.*;
+class TUF{
+public static void main(String args[]) {
 
+  int n=5;
+  int dp[]=new int[n+1];
+  Arrays.fill(dp,-1);
+  dp[0]= 0;
+  dp[1]= 1;
+  
+  for(int i=2; i<=n; i++){
+      dp[i] = dp[i-1]+ dp[i-2];
+  }
+  System.out.println(dp[n]);
+  
+  
+}
+}
+```
+
+**Time Complexity:** `O(N)`
+
+**Space Complexity:** `O(N)`
+
+---
+
+## Space Optimization:
+
+![image](https://github.com/user-attachments/assets/531eada8-af65-4423-a5d7-de8f6b76c339)
+
+We can use variable to eliminate the use of Array.
+
+### Code:
+```java
+import java.util.*;
+class TUF{
+public static void main(String args[]) {
+ int n=5;
+  
+  int prev2 = 0;
+  int prev = 1;
+  
+  for(int i=2; i<=n; i++){
+      int cur_i = prev2+ prev;
+      prev2 = prev;
+      prev= cur_i;
+  }
+  System.out.println(prev);
+  
+  
+}
+}
+```
+
+**Time Complexity:** `O(N)`
+
+**Space Complexity:** `O(1)`
