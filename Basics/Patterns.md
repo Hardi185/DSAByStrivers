@@ -516,3 +516,163 @@ class Main {
 **NOTE:** 2 different loops can also be used for inverted.
 
 ---
+
+```yaml
+1
+01
+101
+0101
+10101
+```
+
+### Code:
+```java
+class Main {
+   
+   static void pattern11(int N)
+{
+     // First row starts by printing a single 1.
+      int start =1;
+      
+      // Outer loop for the no. of rows
+      for(int i=0;i<N;i++){
+          
+          // if the row index is even then 1 is printed first
+          // in that row.
+          if(i%2 ==0) start = 1;
+          
+          // if odd, then the first 0 will be printed in that row.
+          else start = 0;
+          
+          // We alternatively print 1's and 0's in each row by using
+          // the inner for loop.
+          for(int j=0;j<=i;j++){
+              System.out.print(start);
+              start = 1-start;
+          }
+      
+      
+        // As soon as the numbers for each iteration are printed, we move to the
+        // next row and give a line break otherwise all numbers
+        // would get printed in 1 line.
+        System.out.println();
+      }
+}
+
+    public static void main(String[] args) {
+        
+        // Here, we have taken the value of N as 5.
+        // We can also take input from the user.
+        int N = 5;
+        pattern11(N);
+    }
+}
+```
+
+---
+
+```yaml
+1          1
+12        21
+123       321
+1234    4321
+12345  54321
+123456654321
+```
+
+### Code:
+```java
+class Main {
+   
+   static void pattern12(int N)
+{
+     // initial no. of spaces in row 1.
+     int spaces = 2*(N-1);
+     
+      // Outer loop for the number of rows.
+      for(int i=1;i<=N;i++){
+          
+          // for printing numbers in each row
+          for(int j=1;j<=i;j++){
+          System.out.print(j);
+          }
+          
+          // for printing spaces in each row
+          for(int j = 1;j<=spaces;j++){
+          System.out.print(" ");
+          }
+          
+          // for printing numbers in each row
+          for(int j=i;j>=1;j--){
+           System.out.print(j);
+          }
+          
+          // As soon as the numbers for each iteration are printed, we move to the
+          // next row and give a line break otherwise all numbers
+          // would get printed in 1 line.
+          System.out.println();
+          
+          // After each iteration nos. increase by 2, thus
+          // spaces will decrement by 2.
+          spaces-=2;
+      }
+}
+
+    public static void main(String[] args) {
+        
+        // Here, we have taken the value of N as 5.
+        // We can also take input from the user.
+        int N = 5;
+        pattern12(N);
+    }
+}
+```
+
+---
+
+```yaml
+1
+2  3
+4  5  6
+7  8  9  10
+11  12  13  14  15
+```
+
+### Code:
+```java
+class Main {
+   
+   static void pattern13(int N)
+{
+     // starting number.
+     int num =1;
+      
+      // Outer loop for the number of rows.
+      for(int i=1;i<=N;i++){
+          
+          // Inner loop will loop for i times and
+          // print numbers increasing by 1 each time.
+          for(int j=1;j<=i;j++){
+              System.out.print(num + " ");
+              num =num+1;
+          }
+          // As soon as the numbers for each iteration are printed, we move to the
+          // next row and give a line break otherwise all numbers
+          // would get printed in 1 line.
+          System.out.println();
+         
+      }
+}
+
+    public static void main(String[] args) {
+        
+        // Here, we have taken the value of N as 5.
+        // We can also take input from the user.
+        int N = 5;
+        pattern13(N);
+    }
+}
+```
+
+---
+
