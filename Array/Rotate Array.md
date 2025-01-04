@@ -18,6 +18,7 @@ rotate 2 steps to the right: [3,4,5,6,7,1,2]
 ```
 
 ---
+![image](https://github.com/user-attachments/assets/b127956a-2d2e-4e4a-897c-968e3162ce57)
 
 ## Approach 1:
 ```java
@@ -72,6 +73,7 @@ class Solution {
 ```
 
 ---
+![image](https://github.com/user-attachments/assets/eea552dc-d3fa-44c8-99d6-c036c1aee8e0)
 
 ## Approach 2:
 ```java
