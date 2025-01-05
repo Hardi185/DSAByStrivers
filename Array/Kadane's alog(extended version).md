@@ -24,6 +24,7 @@ Output : 9
 ---
 
 ## CODE:
+```java
 class Solution {
     public int pairWithMaxSum(int[] arr) {
         int maxScore = Integer.MIN_VALUE; // Initialize to the smallest integer value
@@ -59,5 +60,5 @@ class Solution {
     }
     
 }
-__________________________________________________________________________________________________________________________
+```
 
