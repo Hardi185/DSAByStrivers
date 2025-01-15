@@ -78,8 +78,8 @@ class Solution {
 ```
 ---
 
-EXPLAINATION:
-1)Have array to store main symbols in roman, intialize total as 0 and have string in char array
-2)have current and next char from char array and check
+## EXPLAINATION:
+1. Have array to store main symbols in roman, intialize total as 0 and have string in char array
+2. have current and next char from char array and check
 if current < next then - current value from total 
 else + current value to total
