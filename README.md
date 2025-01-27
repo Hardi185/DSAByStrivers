@@ -65,6 +65,14 @@ map.containsKey(2);      // Check if key exists
 map.containsValue("Two"); // Check if value exists
 map.size();              // Get size of the map
 map.clear();             // Remove all entries
+
+// Get all keys
+Set<Integer> keySet = map.keySet();
+System.out.println("Keys: " + keySet);
+
+// Get all values
+Collection<String> valueSet = map.values();
+System.out.println("Values: " + valueSet);
 ```
 
 ---
