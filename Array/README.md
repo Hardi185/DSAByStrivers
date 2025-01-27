@@ -72,3 +72,24 @@ Common operations include:
 - **Iterating through elements**: Using loops (e.g., `for` loop) to access all elements in the array.
 
 Arrays are fundamental in programming and are widely used in algorithms, data storage, and other applications.
+
+---------------------------------------------------------------------------------------------------
+
+## Approaches to Solve Array Problems
+
+When solving array-based problems, there are typically three major approaches:
+
+1. **Brute Force**:
+   - This approach uses nested loops (inner and outer loops) to iterate through the array and solve the problem.
+   - Simple but may lead to higher time complexity (e.g., O(n²) or more).
+   - Useful for smaller input sizes or as a baseline solution.
+
+2. **Using Data Structures**:
+   - Leverages appropriate data structures like hashmaps, sets, or stacks to optimize the solution.
+   - Improves time complexity compared to brute force by avoiding unnecessary iterations.
+   - Suitable for problems where additional space usage is acceptable for better performance.
+
+3. **Optimal (Two-Pointer Technique)**:
+   - Focuses on optimizing both time and space complexity by using the **two-pointer** approach.
+   - Effective for problems involving sorted arrays, subarrays, or specific constraints.
+   - Often leads to solutions with O(n) time complexity and O(1) space complexity.
