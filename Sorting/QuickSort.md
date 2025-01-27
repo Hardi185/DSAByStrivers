@@ -1,3 +1,4 @@
+```java
 import java.util.Arrays;
 
 class Solution {
@@ -47,14 +48,15 @@ class Solution {
         arr[j] = temp;
     }
 }
+````
 
-__________________________________________________________________________________________________________________________________________________________________________________________________
+---
 
-NOTES:
--->highly efficient sorting algorithm that employs a divide-and-conquer strategy
--->It works by selecting a 'pivot' element.
--->partitions the other elements into two sub-arrays, according to whether they are less than or greater than the pivot
--->considered faster than other O(n log n) algorithms like merge sort or heap sort.
+### NOTES:
+- highly efficient sorting algorithm that employs a divide-and-conquer strategy
+- It works by selecting a 'pivot' element.
+- partitions the other elements into two sub-arrays, according to whether they are less than or greater than the pivot
+- considered faster than other O(n log n) algorithms like merge sort or heap sort.
 
 HOW it works:
 1)choose pivot
