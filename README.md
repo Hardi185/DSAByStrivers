@@ -166,3 +166,11 @@ String[] array = list.toArray(new String[0]);
 
 This cheat sheet covers the essentials of Java collections, their implementations, and the most common operations. Let me know if you’d like more details on any specific part!
 
+---
+
+## Note to solve all the DSA problems:
+
+1. Do dry run first.
+2. Then write down the steps with dummy values(Algorithm with dummy values).
+3. Based on Algo steps write code.
+
