@@ -34,6 +34,49 @@ stockSpanner.next(85);  // return 6
 
 ---
 
+## Breakdown of Calculations
+
+### `next(100)`:
+- `prices = [100]`
+- No previous elements to compare, span = `1`
+- **Output**: `1`
+
+### `next(80)`:
+- `prices = [100, 80]`
+- 80 is smaller than 100, span = `1`
+- **Output**: `1`
+
+### `next(60)`:
+- `prices = [100, 80, 60]`
+- 60 is smaller than 80, span = `1`
+- **Output**: `1`
+
+### `next(70)`:
+- `prices = [100, 80, 60, 70]`
+- 70 > 60 → span increases to `2`
+- **Output**: `2`
+
+### `next(60)`:
+- `prices = [100, 80, 60, 70, 60]`
+- 60 is smaller than 70, span = `1`
+- **Output**: `1`
+
+### `next(75)`:
+- `prices = [100, 80, 60, 70, 60, 75]`
+- 75 > 60 → span = `2`
+- 75 > 70 → span = `3`
+- 75 > 60 → span = `4`
+- **Output**: `4`
+
+### `next(85)`:
+- `prices = [100, 80, 60, 70, 60, 75, 85]`
+- 85 > 75 → span = `2`
+- 85 > 60 → span = `3`
+- 85 > 70 → span = `4`
+- 85 > 60 → span = `5`
+- 85 > 80 → span = `6`
+- **Output**: `6`
+
 ## Approach 1:
 ```java
 import java.util.ArrayList;
