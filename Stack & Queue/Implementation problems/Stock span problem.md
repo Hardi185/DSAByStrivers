@@ -120,6 +120,77 @@ class StockSpanner {
 }
 ```
 
+---
+
+## Operations
+
+### next(100)
+- Increment index to `0`
+- Stack is empty, span = `0 + 1 = 1`
+- Push `(100, 0)` to stack
+- **Stack:** `[(100, 0)]`
+- **Span:** `1`
+- **Output:** `1`
+
+### next(80)
+- Increment index to `1`
+- 80 ≤ 100, do nothing
+- Span = `1 - 0 = 1`
+- Push `(80, 1)` to stack
+- **Stack:** `[(100, 0), (80, 1)]`
+- **Span:** `1`
+- **Output:** `1`
+
+### next(60)
+- Increment index to `2`
+- 60 ≤ 80, do nothing
+- Span = `2 - 1 = 1`
+- Push `(60, 2)` to stack
+- **Stack:** `[(100, 0), (80, 1), (60, 2)]`
+- **Span:** `1`
+- **Output:** `1`
+
+### next(70)
+- Increment index to `3`
+- 70 > 60, pop `(60, 2)`
+- 70 ≤ 80, stop
+- Span = `3 - 1 = 2`
+- Push `(70, 3)` to stack
+- **Stack:** `[(100, 0), (80, 1), (70, 3)]`
+- **Span:** `2`
+- **Output:** `2`
+
+### next(60)
+- Increment index to `4`
+- 60 ≤ 70, do nothing
+- Span = `4 - 3 = 1`
+- Push `(60, 4)` to stack
+- **Stack:** `[(100, 0), (80, 1), (70, 3), (60, 4)]`
+- **Span:** `1`
+- **Output:** `1`
+
+### next(75)
+- Increment index to `5`
+- 75 > 60, pop `(60, 4)`
+- 75 > 70, pop `(70, 3)`
+- 75 ≤ 80, stop
+- Span = `5 - 1 = 4`
+- Push `(75, 5)` to stack
+- **Stack:** `[(100, 0), (80, 1), (75, 5)]`
+- **Span:** `4`
+- **Output:** `4`
+
+### next(85)
+- Increment index to `6`
+- 85 > 75, pop `(75, 5)`
+- 85 > 80, pop `(80, 1)`
+- 85 ≤ 100, stop
+- Span = `6 - 0 = 6`
+- Push `(85, 6)` to stack
+- **Stack:** `[(100, 0), (85, 6)]`
+- **Span:** `6`
+- **Output:** `6`
+
 ## Approach 2:
 ```java
 import java.util.Stack;
