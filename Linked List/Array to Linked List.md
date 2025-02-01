@@ -91,9 +91,10 @@ Unlike arrays, linked lists do not store elements in contiguous memory locations
 ### Types of Linked Lists
 
 - There are several types of linked lists, each with its own structure:
-**Singly Linked List:** Each node has a reference to the next node only.
-**Doubly Linked List:** Each node has two references: one to the next node and another to the previous node.
-**Circular Linked List:** The last node points back to the first node, making a circular structure
+  
+    - **Singly Linked List:** Each node has a reference to the next node only.
+    - **Doubly Linked List:** Each node has two references: one to the next node and another to the previous node.
+    - **Circular Linked List:** The last node points back to the first node, making a circular structure
 
 ## CODE EXPLAINATION:
 
