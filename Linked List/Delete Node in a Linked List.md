@@ -91,21 +91,14 @@ public class LinkedList {
         return head;
     }
 
-    // Method to delete a node from a specific position (1-indexed)
-    public static Node deleteFromPosition(Node head, int position) {
-        if (head == null || position <= 0) return head;
-
-        if (position == 1) return deleteFromHead(head);
-
-        Node current = head;
-        for (int i = 1; current != null && i < position - 1; i++) {
-            current = current.next;
+    // Method to delete a node from a specific position (node 3)
+    public static Node deleteFromPosition(Node node) {
+        if (node == null || node.next == null) {
+            throw new IllegalArgumentException("Node to be deleted cannot be null or the last node.");
         }
 
-        if (current == null || current.next == null) return head;
-
-        current.next = current.next.next;
-        return head;
+        node.val = node.next.val;  // Copy next node’s value into current node
+        node.next = node.next.next;  // Remove the next node by skipping it
     }
 
     // Method to print the linked list
