@@ -94,7 +94,7 @@ public class LinkedList {
     // Method to delete a node from a specific position (node 3)
     public static Node deleteFromPosition(Node node) {
         if (node == null || node.next == null) {
-            throw new IllegalArgumentException("Node to be deleted cannot be null or the last node.");
+            return null;
         }
 
         node.val = node.next.val;  // Copy next node’s value into current node
@@ -137,6 +137,42 @@ public class LinkedList {
 }
 ```
 
+### Initial Linked List(Remove at any position):
+```
+head -> [4] -> [5] -> [1] -> [9] -> null
+```
+We are given a reference to the node with value `5` (i.e., `node = head.next`).
+
+### Steps to Delete Node:
+1. **Copy Next Node's Value:**
+   - Assign `node.val = node.next.val` to copy the value of the next node into the current node.
+
+   **Before:**
+   ```
+   node -> [5] -> [1] -> [9] -> null
+   ```
+   **After:**
+   ```
+   node -> [1] -> [1] -> [9] -> null
+   ```
+
+2. **Skip Next Node:**
+   - Assign `node.next = node.next.next` to remove the next node.
+
+   **Before:**
+   ```
+   node -> [1] -> [1] -> [9] -> null
+   ```
+   **After:**
+   ```
+   node -> [1] -> [9] -> null
+   ```
+
+### Final Linked List:
+```
+head -> [4] -> [1] -> [9] -> null
+```
+
 ---
 
 ## Explanation
@@ -149,7 +185,7 @@ public class LinkedList {
    Traverse to the second last node and set its `next` pointer to `null`.
 
 3. **Deleting from Position:**
-   Traverse to the node before the specified position and update its `next` pointer to skip the node at the position.
+   add next node's value to current and next node's reference to current, so copying next and that's how next node will be replced
 
 ---
 
