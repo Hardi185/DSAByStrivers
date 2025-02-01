@@ -194,7 +194,7 @@ head -> [4] -> [1] -> [9] -> null
 ### Time Complexity:
 - **Deleting from Head:** O(1)
 - **Deleting from Tail:** O(n)
-- **Deleting from Position:** O(n) (in the worst case)
+- **Deleting from Position:** O(1) (in the worst case)
 
 ### Space Complexity:
 - **O(1):** No extra space is used.
