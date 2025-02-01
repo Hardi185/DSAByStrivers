@@ -1,7 +1,9 @@
-PROBLEM:
+# PROBLEM:
 Given an array of integer arr. Your task is to construct the linked list from arr & return the head of the linked list.
-Examples:
 
+## Examples:
+
+````yaml
 Input: arr = [1, 2, 3, 4, 5]
 Output: LinkedList: 1->2->3->4->5
 Explanation: Linked list for the given array will be
@@ -9,9 +11,13 @@ Explanation: Linked list for the given array will be
 Input: arr = [2, 4, 6, 7, 5, 1, 0]
 Output: LinkedList: 2->4->6->7->5->1->0
 Explanation: Linked list for the given array will be
+````
 
-__________________________________________________________________________________________________________________________
-CODE:
+--------------------------------------------------------------------------------------------------
+
+## CODE:
+
+````java
 class ListNode {
     int val;
     ListNode next;
@@ -70,24 +76,28 @@ public class Solution {
         printLinkedList(head2);
     }
 }
-___________________________________________________________________________________________________________________________
-BASICS OF LL:
--->A linked list is a linear data structure where elements, called nodes, are connected sequentially. 
+````
+
+----------------------------------------------------------------------------------------------------
+
+## BASICS OF LL:
+- A linked list is a linear data structure where elements, called nodes, are connected sequentially. 
 Unlike arrays, linked lists do not store elements in contiguous memory locations. 
-Instead, each node in a linked list contains:
 
-Data: The actual value of the node.
-Pointer/Reference (next): A link or reference to the next node in the sequence.
-Types of Linked Lists
+- Instead, each node in a linked list contains:
+**Data:** The actual value of the node.
+**Pointer/Reference (next):** A link or reference to the next node in the sequence.
 
--->There are several types of linked lists, each with its own structure:
-Singly Linked List: Each node has a reference to the next node only.
-Doubly Linked List: Each node has two references: one to the next node and another to the previous node.
-Circular Linked List: The last node points back to the first node, making a circular structure
+### Types of Linked Lists
 
-CODE EXPLAINATION:
+- There are several types of linked lists, each with its own structure:
+**Singly Linked List:** Each node has a reference to the next node only.
+**Doubly Linked List:** Each node has two references: one to the next node and another to the previous node.
+**Circular Linked List:** The last node points back to the first node, making a circular structure
 
-1)Node Definition: ListNode is a class representing each node in the linked list. Each node has a val (value) and a next (reference to the next node).
-2)Constructing the Linked List:
+## CODE EXPLAINATION:
+
+1. Node Definition: ListNode is a class representing each node in the linked list. Each node has a val (value) and a next (reference to the next node).
+2. Constructing the Linked List:
 Start by creating the head of the linked list using the first element in the array.
 Loop through the remaining elements, create a new node for each, and link it to the previous node.
